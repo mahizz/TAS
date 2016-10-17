@@ -1,0 +1,163 @@
+<script id="wall-main" type="text/template">
+	<div>
+		<div class="container container-alt">
+			<div class="block-header">
+			    <h2>Wall
+			        <small>Yeah, I got wall views as well!. These image grids are generated only using CSS.
+			        </small>
+			    </h2>
+
+			    <ul class="actions">
+			        <li>
+			            <a href="">
+			                <i class="zmdi zmdi-trending-up"></i>
+			            </a>
+			        </li>
+			        <li>
+			            <a href="">
+			                <i class="zmdi zmdi-check-all"></i>
+			            </a>
+			        </li>
+			        <li class="dropdown">
+			            <a href="">
+			                <i class="zmdi zmdi-more-vert"></i>
+			            </a>
+
+			            <ul class="dropdown-menu dropdown-menu-right">
+			                <li>
+			                    <a href="">Refresh</a>
+			                </li>
+			                <li>
+			                    <a href="">Manage Widgets</a>
+			                </li>
+			                <li>
+			                    <a href="">Widgets Settings</a>
+			                </li>
+			            </ul>
+			        </li>
+			    </ul>
+			</div>
+			<div class="row wall">
+			    <div   class="col-md-8">
+			        <div class="card w-post">
+			            <div class="card-body">
+				            <form id="new-post" >
+				                <textarea  name="text" class="wp-text auto-size" placeholder="Write Something..." style="overflow: hidden; word-wrap: break-word; height: 76px;"></textarea>
+
+				                <div class="tab-content p-0">
+				                    <div class="wp-media tab-pane" id="wpm-image">
+				                        Images - Coming soon...
+				                    </div>
+
+				                    <div class="wp-media tab-pane" id="wpm-video">
+				                        Video Links - Coming soon...
+				                    </div>
+
+				                    <div class="wp-media tab-pane" id="wpm-link">
+				                        Links - Coming soon...
+				                    </div>
+				                </div>
+
+				                <div class="wp-actions clearfix">
+				                    <div class="wpa-media-list pull-left">
+				                        <a data-toggle="tab" href="#wpm-image">
+				                            <i class="zmdi zmdi-image"></i>
+				                        </a>
+				                        <a data-toggle="tab" href="#wpm-video">
+				                            <i class="zmdi zmdi-play-circle"></i>
+				                        </a>
+				                        <a data-toggle="tab" href="#wpm-link">
+				                            <i class="zmdi zmdi-link"></i>
+				                        </a>
+				                    </div>
+
+				                    <button id="add-post" class="btn btn-default btn-sm pull-right waves-effect">Post</button>
+				                </div>
+				            </form>
+			            </div>
+			        </div>
+				        <div id="posts">
+						</div>
+			    </div>
+
+			    <div class="col-md-4 hidden-sm hidden-xs">
+			        <div class="card">
+			            <div class="card-header">
+			                <h2>CARDS</h2>
+			            </div>
+			            <div class="card-body card-padding">
+
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+
+</script>
+
+<script id="wall-post" type="text/template">
+	<div class="post">
+		<div class="card w-item">
+		    <div class="card-header">
+		        <div class="media">
+		            <div class="pull-left">
+		                <img class="avatar-img" src="img/profile-pics/1.jpg" alt="">
+		            </div>
+
+		            <div class="media-body">
+		                <h2>USER NAME
+		                    <small>DATE</small>
+		                </h2>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="card-body card-padding">
+		        <p><%- text %></p>
+
+		        <div class="wi-preview lightbox clearfix">
+
+		        </div>
+		        <div class="wi-stats clearfix">
+		            <div class="wis-numbers">
+		                <span><i class="zmdi zmdi-comments"></i> 36</span>
+		                <span class="active"><i class="zmdi zmdi-favorite"></i> 220</span>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="wi-comments">
+
+		        <!-- Comment form -->
+		        <div class="wic-form" style="border-bottom: 1px solid rgba(255,255,255,.06)">
+		            <textarea class="comment-open" placeholder="Write a comment" ></textarea>
+
+		            <div class="wicf-actions text-right">
+		                <button class="btn btn-sm btn-link waves-effect comment-close" >Cancel</button>
+		                <button class="btn btn-sm btn-default waves-effect comment-add">Post</button>
+		            </div>
+		        </div>
+		        <div  class="list-group">
+
+                </div>
+
+
+		    </div>
+
+
+
+
+		</div>
+	</div>
+</script>
+<script id="wall-comment" type="text/template">
+	<div class="list-group-item media">
+		<a href="" class="pull-left">
+		    <img src="img/profile-pics/9.jpg" alt="" class="lgi-img">
+		</a>
+
+		<div class="media-body">
+		    <a href="" class="lgi-heading">Finn Walking <small class="c-gray m-l-10">3rd July 2015</small></a>
+		    <small class="lgi-text">Per conubia nostra.</small>
+		</div>
+	</div>
+</script>
