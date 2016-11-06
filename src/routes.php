@@ -2,9 +2,13 @@
 // Routes
 
 
-$app->get('/test', function ($request, $response) {
+$app->get('/test/[{id}]', function ($request, $response, $args) {
 
     $name = $request->getAttribute('name');
+
+    $sth = $this->db->prepare("DELETE FROM test WHERE id=:id");
+    $sth->bindParam("id", $args['id']);
+    $sth->execute();
 
     $response->getBody()->write("test nanan its test");
 
