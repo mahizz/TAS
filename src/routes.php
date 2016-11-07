@@ -5,12 +5,11 @@
 $app->get('/test/[{id}]', function ($request, $response, $args) {
 
     $name = $request->getAttribute('name');
+    $user = $this->db->table('users')->find(1);
+    
+    var_dump($user);
 
-    $sth = $this->db->prepare("DELETE FROM test WHERE id=:id");
-    $sth->bindParam("id", $args['id']);
-    $sth->execute();
-
-    $response->getBody()->write("test nanan its test");
+    $response->getBody()->write("test nanan its ". $args['id']);
 
     return $response;
 });

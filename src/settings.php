@@ -16,12 +16,16 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
         //database settings
-        'db' => [
+    'db' => [
+            'driver' => 'mysql',
             'host' => 'localhost',
-            'dbname' => 'test',
-            'user' => 'test',
-            'pass' => 'test'
-        ],
+            'database' => 'test',
+            'username' => 'test',
+            'password' => 'test',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ]
 
     ],
 ];
