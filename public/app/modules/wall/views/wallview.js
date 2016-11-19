@@ -32,6 +32,19 @@ define(['text!start/modules/wall/templates/wall.tpl.html',
 					return acc;
 				}, {});
 				var temp = new postModel(t);
+
+
+				temp.save(null, {
+					wait:true,
+					success:function(model, response) {
+						console.log('Successfully saved!');
+					},
+					error: function(model, error) {
+						//console.log(model.toJSON());
+						console.log('error');
+					}
+				});
+
 				this.posts.add(temp);
 				var view = new postView({model : temp});
 				$("#posts").append(view.render().el);

@@ -1,76 +1,15 @@
 <script id="wall-main" type="text/template">
 	<div>
 		<div class="container container-alt">
-			<div class="block-header">
-			    <h2>Wall
-			        <small>Yeah, I got wall views as well!. These image grids are generated only using CSS.
-			        </small>
-			    </h2>
-
-			    <ul class="actions">
-			        <li>
-			            <a href="">
-			                <i class="zmdi zmdi-trending-up"></i>
-			            </a>
-			        </li>
-			        <li>
-			            <a href="">
-			                <i class="zmdi zmdi-check-all"></i>
-			            </a>
-			        </li>
-			        <li class="dropdown">
-			            <a href="">
-			                <i class="zmdi zmdi-more-vert"></i>
-			            </a>
-
-			            <ul class="dropdown-menu dropdown-menu-right">
-			                <li>
-			                    <a href="">Refresh</a>
-			                </li>
-			                <li>
-			                    <a href="">Manage Widgets</a>
-			                </li>
-			                <li>
-			                    <a href="">Widgets Settings</a>
-			                </li>
-			            </ul>
-			        </li>
-			    </ul>
-			</div>
 			<div class="row wall">
 			    <div   class="col-md-8">
 			        <div class="card w-post">
 			            <div class="card-body">
 				            <form id="new-post" >
 				                <textarea  name="text" class="wp-text auto-size" placeholder="Write Something..." style="overflow: hidden; word-wrap: break-word; height: 76px;"></textarea>
-
-				                <div class="tab-content p-0">
-				                    <div class="wp-media tab-pane" id="wpm-image">
-				                        Images - Coming soon...
-				                    </div>
-
-				                    <div class="wp-media tab-pane" id="wpm-video">
-				                        Video Links - Coming soon...
-				                    </div>
-
-				                    <div class="wp-media tab-pane" id="wpm-link">
-				                        Links - Coming soon...
-				                    </div>
-				                </div>
-
 				                <div class="wp-actions clearfix">
-				                    <div class="wpa-media-list pull-left">
-				                        <a data-toggle="tab" href="#wpm-image">
-				                            <i class="zmdi zmdi-image"></i>
-				                        </a>
-				                        <a data-toggle="tab" href="#wpm-video">
-				                            <i class="zmdi zmdi-play-circle"></i>
-				                        </a>
-				                        <a data-toggle="tab" href="#wpm-link">
-				                            <i class="zmdi zmdi-link"></i>
-				                        </a>
-				                    </div>
 
+				                	<input type="file" id="postimg" name="postimg"/>
 				                    <button id="add-post" class="btn btn-default btn-sm pull-right waves-effect">Post</button>
 				                </div>
 				            </form>
@@ -79,7 +18,6 @@
 				        <div id="posts">
 						</div>
 			    </div>
-
 			    <div class="col-md-4 hidden-sm hidden-xs">
 			        <div class="card">
 			            <div class="card-header">

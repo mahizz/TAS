@@ -4,7 +4,6 @@ define([],function  () {
 		routes: {
 			"help":                 "help",    // #help
 			"wall":     "invokeWallModule",
-			"draw":     "invokeDrawModule"
 		},
 
 		initialize: function(){
@@ -24,13 +23,6 @@ define([],function  () {
 				}
 			});
 		},
-		invokeDrawModule: function(){
-			require(["start/modules/draw/drawrouter"],function(r){
-				if(!MyApp.Routers.Draw){
-					MyApp.Routers.Draw = new r("draw");
-				}
-			});
-		}
 	});
 
 	return new router();

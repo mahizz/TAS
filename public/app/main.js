@@ -46,17 +46,16 @@ define(['text!start/modules/login/templates/login.tpl.html','js/plugins/metismen
 
 	var mainView = Backbone.View.extend({
 
-
-
 		tpl: _.template($(t).closest("#loginpopup").html()),
 		el: 'body',
 		events:{
 			"click   #login":          "login",
-			"click   .sidebar-collapse-icon":    "sidebarCollapse"
+			"click   .sidebar-collapse-icon":    "sidebarCollapse",
+            "click   #wall":          "wallmodule",
 
 		},
+
 		initialize: function(){
-			
 			console.log("init application ");
 			$('#side-nav').metisMenu();
 
@@ -68,8 +67,6 @@ define(['text!start/modules/login/templates/login.tpl.html','js/plugins/metismen
         	$container.toggleClass('sidebar-collapsed').toggleClass('can-resize');
 		},
 
-		
-	
 	});
 
 	return mainView;

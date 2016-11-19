@@ -1,4 +1,9 @@
-define(['start/modules/wall/views/wallview'],function  (view) {
+define(['start/modules/wall/views/wallview'],function  (view,dropzone) {
+
+
+
+
+
 
 	var r  = Backbone.SubRoute.extend({
 		routes: {

@@ -5,7 +5,7 @@
 $app->get('/test/[{id}]', function ($request, $response, $args) {
 
     $name = $request->getAttribute('name');
-    $user = $this->db->table('users')->find(1);
+    $user = $this->db->table('users')->find($args['id']);
     
     var_dump($user);
 
@@ -50,5 +50,12 @@ $app->post('/login', function ($request, $response, $args) {
 });
 
 
+$app->post('/api/posts', function ($request, $response, $args) {
+    $data =json_encode($_POST);
+    
+    $response->getBody()->write("test nanan its ". $data);
+
+    return $response;
+});
 
 

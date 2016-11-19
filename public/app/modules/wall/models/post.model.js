@@ -5,10 +5,11 @@ define([],function(){
 		defaults: {
 			"id": null,
 			"creatorID": null,
-			"text": "some",
+			"text": null,
 			"title": "title",
-			"date": "now"
+			"date": null
 		},
+		url:"api/posts"
 	});
 
 	return post;
