@@ -1,6 +1,7 @@
 <?php
 // Routes
 
+use \Models\Posts as posts;
 
 $app->get('/test/[{id}]', function ($request, $response, $args) {
 
@@ -51,11 +52,27 @@ $app->post('/login', function ($request, $response, $args) {
 
 
 $app->post('/api/posts', function ($request, $response, $args) {
-    $data =json_encode($_POST);
-    
-    $response->getBody()->write("test nanan its ". $data);
-
+    $temp = file_get_contents('php://input');
+    $data = json_decode($temp, true);
+    $post =new posts();
+    $post->title =$data['title'];
+    $post->text =$data['text'];
+    $response->getBody()->write("test nanan its ".$post->toJson());
+    $post->save();
     return $response;
 });
 
 
+$app->post('/api/img', function ($request, $response, $args) {
+
+    $plik_tmp = $_FILES['file']['tmp_name'] ;
+
+
+    if(is_uploaded_file($plik_tmp)) { 
+         move_uploaded_file($plik_tmp, "/posts". $_FILES['file']['name']); 
+    } 
+    $response->getBody()->write("image recived".var_dump($_FILES));
+    return $response;
+});
+
+?>

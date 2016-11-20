@@ -42,6 +42,7 @@ class ComposerStaticInita0b53121793e46a4ad650a6cb71143e9
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Models\\' => 7,
         ),
         'I' => 
         array (
@@ -112,6 +113,10 @@ class ComposerStaticInita0b53121793e46a4ad650a6cb71143e9
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Models',
         ),
         'Interop\\Container\\' => 
         array (

@@ -6,8 +6,9 @@ define([],function(){
 			"id": null,
 			"creatorID": null,
 			"text": null,
-			"title": "title",
-			"date": null
+			"title": null,
+			"date": null,
+			"imgpath": null
 		},
 		url:"api/posts"
 	});
