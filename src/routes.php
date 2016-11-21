@@ -57,8 +57,10 @@ $app->post('/api/posts', function ($request, $response, $args) {
     $post =new posts();
     $post->title =$data['title'];
     $post->text =$data['text'];
-    $response->getBody()->write("test nanan its ".$post->toJson());
+    $post->img =$data['img'];
     $post->save();
+    $post = posts::where('title', $data['title'])->first();
+    $response->getBody()->write($post->toJson());
     return $response;
 });
 
@@ -66,12 +68,14 @@ $app->post('/api/posts', function ($request, $response, $args) {
 $app->post('/api/img', function ($request, $response, $args) {
 
     $plik_tmp = $_FILES['file']['tmp_name'] ;
-
-
     if(is_uploaded_file($plik_tmp)) { 
-         move_uploaded_file($plik_tmp, "/posts". $_FILES['file']['name']); 
-    } 
-    $response->getBody()->write("image recived".var_dump($_FILES));
+        move_uploaded_file($plik_tmp,$_SERVER['DOCUMENT_ROOT']. "/images/posts/".$_FILES['file']['name']); 
+        $response->getBody()->write($_FILES['file']['name']);
+        $response->withStatus(201);
+    }else{
+        $response->withStatus(400);
+    }
+
     return $response;
 });
 

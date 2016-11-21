@@ -4,11 +4,11 @@ define([],function(){
 		
 		defaults: {
 			"id": null,
-			"creatorID": null,
+			"creatorid": null,
 			"text": null,
 			"title": null,
-			"date": null,
-			"imgpath": null
+			"created_at": null,
+			"img": null
 		},
 		url:"api/posts"
 	});

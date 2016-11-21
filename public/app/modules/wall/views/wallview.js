@@ -33,12 +33,10 @@ define(['text!start/modules/wall/templates/wall.tpl.html',
 					return acc;
 				}, {});
 				var temp = new postModel(t);
-
-
-			   // var file_data = $('#sortpicture').prop('files')[0];   
+  
 			    var form_data = new FormData();                  
-			    form_data.append('file', img);
-			    alert(form_data);                             
+			    form_data.append('file', img);  
+			    var that = this;                      
 			    $.ajax({
 			                url: 'api/img', // point to server-side PHP script 
 			                cache: false,
@@ -47,29 +45,24 @@ define(['text!start/modules/wall/templates/wall.tpl.html',
 			                data: form_data,                         
 			                type: 'post',
 			                success: function(php_script_response){
-			                    alert(php_script_response); // display response from the PHP script, if any
-			                }
+			                	temp.set('img',php_script_response);
+								temp.save(null, {
+									wait:true,
+									success:function(model, response) {
+										console.log("saved");
+											that.posts.add(temp);
+											var view = new postView({model : temp});
+											$("#posts").append(view.render().el);
+									},
+									error: function(model, error) {
+										console.log("error saving")
+									}
+			                	});
+			            	}	
      			})
 
 
 
-
-
-//commented for testing
-				// temp.save(null, {
-				// 	wait:true,
-				// 	success:function(model, response) {
-				// 		console.log('Successfully saved!');
-				// 	},
-				// 	error: function(model, error) {
-				// 		//console.log(model.toJSON());
-				// 		console.log('error');
-				// 	}
-				// });
-
-				this.posts.add(temp);
-				var view = new postView({model : temp});
-				$("#posts").append(view.render().el);
 			},
 			readurl: function(e){
 		        e.preventDefault();

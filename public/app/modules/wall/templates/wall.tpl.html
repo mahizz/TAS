@@ -9,7 +9,7 @@
 								<div>
 									Tytuł: <input type="text" name="title" style="background-color: transparent; border: 0" placeholder="podaj tytuł"><br>
 					            </div>
-					            <img name="imgpath" style="visibility: hidden"id="imgpreview" src="#" alt="" />
+					            <img name="img" style="visibility: hidden"id="imgpreview" src="#" alt="" />
 
 				            	<div>
 				            	</div>
@@ -47,17 +47,19 @@
 		    <div class="card-header">
 		        <div class="media">
 		            <div class="pull-left">
-		                <img class="avatar-img" src="img/profile-pics/1.jpg" alt="">
+		                <img class="avatar-img" src="images/man-3.jpg" alt="">
 		            </div>
 
 		            <div class="media-body">
 		                <h2>USER NAME
-		                    <small>DATE</small>
+		                    <small><%-created_at%></small>
 		                </h2>
 		            </div>
 		        </div>
 		    </div>
 		    <div class="card-body card-padding">
+		        <img class="" src="images/posts/<%=img%>" alt="">
+
 		        <p><%- text %></p>
 
 		        <div class="wi-preview lightbox clearfix">
