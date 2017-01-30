@@ -8,7 +8,8 @@ define([],function(){
 			"text": null,
 			"title": null,
 			"created_at": null,
-			"img": null
+			"img": null,
+			"score": 0
 		},
 		urlRoot : 'api/posts',
 	});
