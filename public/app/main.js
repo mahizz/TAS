@@ -52,7 +52,7 @@ define(['text!start/modules/login/templates/login.tpl.html','js/plugins/metismen
 			"click   #login":          "login",
 			"click   .sidebar-collapse-icon":    "sidebarCollapse",
             "click   #wall":          "wallmodule",
-
+            "click   #logout":          "logout",
 		},
 
 		initialize: function(){
@@ -66,6 +66,19 @@ define(['text!start/modules/login/templates/login.tpl.html','js/plugins/metismen
         	event.preventDefault();
         	$container.toggleClass('sidebar-collapsed').toggleClass('can-resize');
 		},
+
+        logout: function(e){
+            console.log(document.cookie.split("=")[1]);
+            var id = document.cookie.split("=")[1]
+            $.ajax({
+                url: '/login/'+id,
+                type: 'DELETE',
+                success: function(result) {
+                    window.location.replace('/'); 
+
+                }
+            });
+        },
 
 	});
 

@@ -1,0 +1,72 @@
+<script id="wall-main" type="text/template">
+	<div>
+		<div class="container container-alt">
+			<div class="row wall">
+			    <div   class="col-md-8">
+			        <div class="card w-post">
+			            <div class="card-body">
+			            </div>
+			        </div>
+				        <div id="posts">
+						</div>
+			    </div>
+			    <div class="col-md-4 hidden-sm hidden-xs">
+			        <div class="card">
+			            <div class="card-header">
+			                <h2>CARDS</h2>
+			            </div>
+			            <div class="card-body card-padding">
+
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="wall-post" type="text/template">
+	<div class="post">
+		<div class="card w-item">
+		    <div class="card-header">
+		        <div class="media">
+		            <div class="media-body">
+		                <h2><a  href="/#topic/<%=id%>"><%-title%></a>
+		                    <small><%-created_at%></small>
+		                </h2>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="card-body card-padding  text-center">
+		        <img class="" src="images/posts/<%=img%>" alt="">
+
+		        <p><%- text %></p>
+
+		        <div class="wi-preview lightbox clearfix">
+
+		        </div>
+		        <div class="wi-stats clearfix">
+		            <div class="wis-numbers">
+		                <span class="active"><i class="zmdi zmdi-favorite"></i> <%=score%></span>
+		            </div>
+		        </div>
+		    </div>
+
+
+
+
+		</div>
+	</div>
+</script>
+<script id="wall-comment" type="text/template">
+	<div class="list-group-item media">
+		<a href="" class="pull-left">
+		    <img src="img/profile-pics/9.jpg" alt="" class="lgi-img">
+		</a>
+
+		<div class="media-body">
+		    <a href="" class="lgi-heading">Finn Walking <small class="c-gray m-l-10"><%-created_at%></small></a>
+		    <small class="lgi-text"><%- text %></small>
+		</div>
+	</div>
+</script>

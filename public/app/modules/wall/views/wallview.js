@@ -61,8 +61,6 @@ define(['text!start/modules/wall/templates/wall.tpl.html',
 			            	}	
      			})
 
-
-
 			},
 			readurl: function(e){
 		        e.preventDefault();

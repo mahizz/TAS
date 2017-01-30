@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>register</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <!-- Site favicon -->
+        <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+        <!-- /site favicon -->
+
+        <!-- Entypo font stylesheet -->
+        <link href="css/entypo.css" rel="stylesheet">
+        <!-- /entypo font stylesheet -->
+
+        <!-- Font awesome stylesheet -->
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <!-- /font awesome stylesheet -->
+
+        <!-- Bootstrap stylesheet min version -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- /bootstrap stylesheet min version -->
+
+        <!-- Mouldifi core stylesheet -->
+        <link href="css/mouldifi-core.css" rel="stylesheet">
+        <!-- /mouldifi core stylesheet -->
+
+        <link href="css/mouldifi-forms.css" rel="stylesheet">
+        <script src="js/jquery.min.js"></script>
+        <script src="app/register.js"></script>
+    </head>
+    <body class="login-page">
+    <div class="login-container">
+        <div class="login-branding">
+            <a href="index.html"><img src="images/logo.png" alt="Mouldifi" title="Mouldifi"></a>
+        </div>
+        <div class="login-content text-center">
+            <?php if (isset($login_error) && $login_error==true) : ?>       
+                <div class="alert alert-danger text-center">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    User exists
+                </div>
+            <?php endif; ?>            
+            <h2><strong>Welcome</strong>, please Register</h2>
+
+
+            <form id="registerform" method="post" action="api/users">                        
+                <div class="form-group">
+                    <input type="text" name="login" placeholder="Username" class="form-control">
+                </div>                        
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button  class="btn btn-primary btn-block">Register</button>
+                </div>                       
+            </form>
+        </div>
+    </div>
+    <!--Load JQuery-->
+
+    <script src="js/bootstrap.min.js"></script>
+
+
+    </body>
+</html>

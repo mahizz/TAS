@@ -51,9 +51,10 @@ require(['js/jquery.min', 'js/underscore', ],function(){
 	
 		require(['start/router','start/main'], function(router,main){
 			//new router 
+			Backbone.history.start();
 			MyApp.router = router;
 			console.log("history start");
-			Backbone.history.start();
+
 
 			MyApp.mainView = new main();
 

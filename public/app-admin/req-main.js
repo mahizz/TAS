@@ -36,7 +36,7 @@ require.config({
 
 });
 
-var MyApp = MyApp || {};
+var MyAdmin = MyAdmin || {};
 
 //	"vendors/bower_components/sweetalert/dist/sweetalert.min"
 
@@ -51,11 +51,11 @@ require(['js/jquery.min', 'js/underscore', ],function(){
 	
 		require(['start/router','start/main'], function(router,main){
 			//new router 
-			MyApp.router = router;
+			MyAdmin.router = router;
 			console.log("history start");
 			Backbone.history.start();
 
-			MyApp.mainView = new main();
+			MyAdmin.mainView = new main();
 
 		});	
 	

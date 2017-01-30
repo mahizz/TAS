@@ -1,4 +1,4 @@
-define(['text!start/modules/login/templates/login.tpl.html','js/plugins/metismenu/jquery.metisMenu.js'],function(t,metis){
+define([],function(){
 
 	//script 
 
@@ -48,25 +48,30 @@ define(['text!start/modules/login/templates/login.tpl.html','js/plugins/metismen
 
 
 
-		tpl: _.template($(t).closest("#loginpopup").html()),
+		tpl: undefined,
 		el: 'body',
 		events:{
-			"click   #login":          "login",
-			"click   .sidebar-collapse-icon":    "sidebarCollapse"
-
+            "click   #logout":          "logout",
 		},
 		initialize: function(){
 			
 			console.log("init application ");
-			$('#side-nav').metisMenu();
 
 		},
 
-		sidebarCollapse: function(e){
-			e.preventDefault();
-        	event.preventDefault();
-        	$container.toggleClass('sidebar-collapsed').toggleClass('can-resize');
+		logout: function(e){
+            console.log(document.cookie.split("=")[1]);
+            var id = document.cookie.split("=")[1]
+            $.ajax({
+                url: '/login/'+id,
+                type: 'DELETE',
+                success: function(result) {
+                    window.location.replace('/'); 
+
+                }
+            });
 		},
+
 
 		
 	

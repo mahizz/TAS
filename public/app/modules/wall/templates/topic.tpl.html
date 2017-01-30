@@ -5,21 +5,6 @@
 			    <div   class="col-md-8">
 			        <div class="card w-post">
 			            <div class="card-body">
-				            <form id="new-post" >
-								<div>
-									Tytuł: <input type="text" name="title" style="background-color: transparent; border: 0" placeholder="podaj tytuł"><br>
-					            </div>
-					            <img name="img" style="visibility: hidden"id="imgpreview" src="#" alt="" />
-
-				            	<div>
-				            	</div>
-				                <textarea  name="text" class="wp-text auto-size" placeholder="Write Something..." style="overflow: hidden; word-wrap: break-word; height: 76px;"></textarea>
-				                <div class="wp-actions clearfix">
-
-				                	<input type="file" id="postimg" name="postimg"/>
-				                    <button id="add-post" class="btn btn-default btn-sm pull-right waves-effect">Post</button>
-				                </div>
-				            </form>
 			            </div>
 			        </div>
 				        <div id="posts">
@@ -46,18 +31,14 @@
 		<div class="card w-item">
 		    <div class="card-header">
 		        <div class="media">
-		            <div class="pull-left">
-		                <img class="avatar-img" src="images/man-3.jpg" alt="">
-		            </div>
-
 		            <div class="media-body">
-		                <h2>USER NAME
+		                <h2><%-title%>
 		                    <small><%-created_at%></small>
 		                </h2>
 		            </div>
 		        </div>
 		    </div>
-		    <div class="card-body card-padding">
+		    <div class="card-body card-padding text-center">
 		        <img class="" src="images/posts/<%=img%>" alt="">
 
 		        <p><%- text %></p>
@@ -67,20 +48,38 @@
 		        </div>
 		        <div class="wi-stats clearfix">
 		            <div class="wis-numbers">
-		                <span class="active"><i class="zmdi zmdi-favorite"></i> <%=score%></span>
+		                <span class="active"><i class="zmdi zmdi-favorite"></i><%=score%></span>
 		            </div>
+					  <div id="stars" class="stars">
+					    <form action="">
+					      <input class="star star-5" id="star-5-2" name="star" value="5" type="radio">
+					      <label class="star star-5" for="star-5-2"></label>
+					      <input class="star star-4" id="star-4-2" name="star" value="4" type="radio">
+					      <label class="star star-4" for="star-4-2"></label>
+					      <input class="star star-3" id="star-3-2" name="star" value="3" type="radio">
+					      <label class="star star-3" for="star-3-2"></label>
+					      <input class="star star-2" id="star-2-2" name="star" value="2" type="radio">
+					      <label class="star star-2" for="star-2-2"></label>
+					      <input class="star star-1" id="star-1-2" name="star" value="1" type="radio">
+					      <label class="star star-1" for="star-1-2"></label>
+					      <button id ="rate" class="btn btn-sm btn-default waves-effect" >Rate</button>
+					    </form>
+					  </div>
 		        </div>
 		    </div>
 		    <div class="wi-comments">
-
 		        <!-- Comment form -->
 		        <div class="wic-form" style="border-bottom: 1px solid rgba(255,255,255,.06)">
-		            <textarea class="comment-open" placeholder="Write a comment" ></textarea>
+		        	
 
-		            <div class="wicf-actions text-right">
-		                <button class="btn btn-sm btn-link waves-effect comment-close" >Cancel</button>
-		                <button class="btn btn-sm btn-default waves-effect comment-add">Post</button>
+			            <textarea id="comment" class="comment-open" placeholder="Write a commentttttt" ></textarea>
+
+			            <div class="wicf-actions text-right">
+			                <button class="btn btn-sm btn-link waves-effect comment-close" >Cancel</button>
+			                <button class="btn btn-sm btn-default waves-effect comment-add">Post</button>
+			            </div>
 		            </div>
+		            
 		        </div>
 		        <div  class="list-group">
 
@@ -98,12 +97,11 @@
 <script id="wall-comment" type="text/template">
 	<div class="list-group-item media">
 		<a href="" class="pull-left">
-		    <img src="img/profile-pics/9.jpg" alt="" class="lgi-img">
 		</a>
 
 		<div class="media-body">
-		    <a href="" class="lgi-heading">Finn Walking <small class="c-gray m-l-10">3rd July 2015</small></a>
-		    <small class="lgi-text">Per conubia nostra.</small>
+		    <a  class="lgi-heading">Finn Walking <small class="c-gray m-l-10"><%-created_at%></small></a>
+		    <small class="lgi-text"><%- text %></small>
 		</div>
 	</div>
 </script>

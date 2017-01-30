@@ -4,30 +4,28 @@ define([],function  () {
 		routes: {
 			"help":                 "help",    // #help
 			"users":     "invokeUsersModule",
-			"draw":     "invokeDrawModule"
+			"posts":     "invokePostsModule"
 		},
 
 		initialize: function(){
-			if (!MyApp.Routers) {
-					MyApp.Routers ={};
+			if (!MyAdmin.Routers) {
+					MyAdmin.Routers ={};
 				}
 		},
 
 		help: function() {
-			console.log("help help");    
+			console.log("help admin  help");    
 		},
 
 		invokeUsersModule: function() {
-			require(["start/modules/wall/wallrouter"],function(r){
-				if (!MyApp.Routers.Wall) {
-					MyApp.Routers.Wall = new r("wall");
-				}
+			require(["start/modules/users/views/usersview"],function(view){
+				MyAdmin.users = new view();
 			});
 		},
-		invokeDrawModule: function(){
+		invokePostsModule: function(){
 			require(["start/modules/draw/drawrouter"],function(r){
-				if(!MyApp.Routers.Draw){
-					MyApp.Routers.Draw = new r("draw");
+				if(!MyAdmin.Routers.Draw){
+					MyAdmin.Routers.Draw = new r("draw");
 				}
 			});
 		}

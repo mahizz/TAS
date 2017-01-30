@@ -1,17 +1,16 @@
 define([],function(){
 
-	var post = Backbone.Model.extend({
+	var comment = Backbone.Model.extend({
 		
 		defaults: {
 			"id": null,
 			"creatorid": null,
+			"postid": null,
 			"text": null,
-			"title": null,
 			"created_at": null,
-			"img": null
 		},
-		urlRoot : 'api/posts',
+		urlRoot : 'api/comments',
 	});
 
-	return post;
+	return comment;
 });

@@ -1,9 +1,5 @@
-define(['start/modules/wall/views/wallview'],function  (view,dropzone) {
-
-
-
-
-
+define(['start/modules/wall/views/wallview'],
+	function  (view,topic) {
 
 	var r  = Backbone.SubRoute.extend({
 		routes: {
@@ -14,10 +10,20 @@ define(['start/modules/wall/views/wallview'],function  (view,dropzone) {
 			"search"         : "searchWall",
 
 			/* matches http://yourserver.org/books/view/:bookId */
-			"view/:bookId"   : "viewPost",
+			"topic/:topicId"   : "viewTopic",
 		},
 		initialize: function(){
-			this.wallView = new view();
+			
+            $.ajax({
+                url: '/test',
+                type: 'get',
+                success: function(result) {  
+                    this.wallView = new view();
+                },
+                error: function(error){
+                	window.location.replace('/login');
+                }
+            });
 		},
 
 		showWall: function() {
@@ -26,8 +32,9 @@ define(['start/modules/wall/views/wallview'],function  (view,dropzone) {
 		searchWall: function() {
 			console.log("Wall test");
 		},
-		viewPost: function() {
-			// ...module-specific code
+		viewTopic: function(topicId) {
+			this.topicView = new topic();
+			this.topicView.topicId = topicId;
 		},
 	});
 

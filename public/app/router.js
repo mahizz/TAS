@@ -2,8 +2,10 @@ define([],function  () {
 	
 	var router = Backbone.Router.extend({
 		routes: {
-			"help":                 "help",    // #help
-			"wall":     "invokeWallModule",
+			"":                   "front",
+			"help":               "help",    // #help
+			"wall":     		  "invokeWallModule",
+			"topic/:topicId":     "invokeTopic",
 		},
 
 		initialize: function(){
@@ -15,6 +17,11 @@ define([],function  () {
 		help: function() {
 			console.log("help help");    
 		},
+		front: function() {
+			require(["start/modules/front/views/frontview"],function(view){
+				this.frontview = new view();
+			});   
+		},
 
 		invokeWallModule: function() {
 			require(["start/modules/wall/wallrouter"],function(r){
@@ -23,6 +30,16 @@ define([],function  () {
 				}
 			});
 		},
+
+		invokeTopic: function(topicId) {
+			require(["start/modules/wall/views/topicview"],function(view){
+				console.log("topic: "+topicId);
+				this.topicview = new view({id : topicId});
+			});
+		},
+
+
+	
 	});
 
 	return new router();
