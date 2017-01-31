@@ -19,7 +19,7 @@ return [
     'db' => [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'test',
+            'database' => 'TAS',
             'username' => 'test',
             'password' => 'test',
             'charset'   => 'utf8',

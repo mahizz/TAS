@@ -181,11 +181,13 @@ $app->get('/api/posts', function ($request, $response, $args) {
 });
 
 $app->post('/api/img', function ($request, $response, $args) {
+    $sid = session_id();
  if(isset( $_SESSION["user"])){
     $plik_tmp = $_FILES['file']['tmp_name'] ;
     if(is_uploaded_file($plik_tmp)) { 
-        move_uploaded_file($plik_tmp,$_SERVER['DOCUMENT_ROOT']. "/images/posts/".$_FILES['file']['name']); 
-        $response->getBody()->write($_FILES['file']['name']);
+        $nazwa = (string)$sid.$_FILES['file']['name'];
+        move_uploaded_file($plik_tmp,$_SERVER['DOCUMENT_ROOT']. "/images/posts/". $nazwa); 
+        $response->getBody()->write($nazwa);
         $response->withStatus(201);
     }else{
         $response->withStatus(400);

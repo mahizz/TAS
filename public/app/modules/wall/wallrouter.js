@@ -1,4 +1,4 @@
-define(['start/modules/wall/views/wallview'],
+define(['start/modules/wall/views/wallview','js/backbone.subroute'],
 	function  (view,topic) {
 
 	var r  = Backbone.SubRoute.extend({
